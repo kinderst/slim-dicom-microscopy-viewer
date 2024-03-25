@@ -1389,7 +1389,7 @@ class VolumeImageViewer {
         overviewmapElement.style.height = `${height}px`
         map.updateSize()
         map.setView(overviewView)
-        console.log("omg hi hi hi no wai CHANGES yeah neww lol yesh!")
+        console.log("topcon1")
         this[_map].removeControl(this[_overviewMap])
         this[_map].addControl(this[_overviewMap])
       }
