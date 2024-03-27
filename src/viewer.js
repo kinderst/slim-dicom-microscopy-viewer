@@ -1389,7 +1389,6 @@ class VolumeImageViewer {
         overviewmapElement.style.height = `${height}px`
         map.updateSize()
         map.setView(overviewView)
-        console.log("topcon1")
         this[_map].removeControl(this[_overviewMap])
         this[_map].addControl(this[_overviewMap])
       }
@@ -1650,16 +1649,16 @@ class VolumeImageViewer {
    * Get all optical paths.
    *
    */
-  someFunction () {
-    console.log('some function...new')
-    // console.log(this[_imageAugmentations])
-    // console.log('changing it...')
-    // this[_imageAugmentations]['hue'] = 180
-    // this[_map].render()
-  }
+  // someFunction () {
+  //   console.log('some function...new')
+  //   // console.log(this[_imageAugmentations])
+  //   // console.log('changing it...')
+  //   // this[_imageAugmentations]['hue'] = 180
+  //   // this[_map].render()
+  // }
 
   setImageAugmentationHue (inputValue) {
-    console.log("attempting to set hue: ", inputValue)
+    // console.log("attempting to set hue: ", inputValue)
     if (inputValue >= 0 && inputValue <= 360) {
       this[_imageAugmentations]['hue'] = inputValue
       this[_map].render()
@@ -1668,7 +1667,7 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationBrightness (inputValue) {
-    console.log("attempting to set brightness: ", inputValue)
+    // console.log("attempting to set brightness: ", inputValue)
     if (inputValue >= -1 && inputValue <= 1) {
       this[_imageAugmentations]['brightness'] = inputValue
       this[_map].render()
@@ -1676,7 +1675,7 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationSaturation (inputValue) {
-    console.log("attempting to set saturation: ", inputValue)
+    // console.log("attempting to set saturation: ", inputValue)
     if (inputValue >= -5 && inputValue <= 5) {
       this[_imageAugmentations]['saturation'] = inputValue
       this[_map].render()
@@ -1684,7 +1683,7 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationContrast (inputValue) {
-    console.log("attempting to set contrast: ", inputValue)
+    // console.log("attempting to set contrast: ", inputValue)
     if (inputValue >= -2 && inputValue <= 2) {
       this[_imageAugmentations]['contrast'] = inputValue
       this[_map].render()
@@ -1692,7 +1691,7 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationSharpen (inputValue) {
-    console.log("attempting to set sharpen: ", inputValue)
+    // console.log("attempting to set sharpen: ", inputValue)
     if (inputValue >= 0 && inputValue <= 3) {
       this[_imageAugmentations]['sharpen'] = inputValue
       this[_map].render()
@@ -1700,13 +1699,13 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationDetectEdges (inputValue) {
-    console.log("attempting to set detectEdges: ", inputValue)
+    // console.log("attempting to set detectEdges: ", inputValue)
     this[_imageAugmentations]['detectEdges'] = inputValue
     this[_map].render()
   }
 
   setImageAugmentationNegative (inputValue) {
-    console.log("attempting to set negative: ", inputValue)
+    // console.log("attempting to set negative: ", inputValue)
     this[_imageAugmentations]['negative'] = inputValue
     this[_map].render()
   }
@@ -3506,7 +3505,7 @@ class VolumeImageViewer {
           const graphicIndex = retrievedBulkdata[1]
           const measurements = retrievedBulkdata[2]
 
-          console.log('process annotations')
+          // console.log('process annotations')
           for (let i = 0; i < numberOfAnnotations; i++) {
             const point = _getCentroid(
               graphicType,
