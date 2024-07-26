@@ -1314,8 +1314,9 @@ class VolumeImageViewer {
       layers.push(tileDebugLayer)
     }
 
-    console.log('test alpha size: ', Math.max(...this[_pyramid].gridSizes[0]))
-    if (Math.max(...this[_pyramid].gridSizes[0]) <= 10) {
+    // SCOTT 999999 so it just always runs, or true
+    // if (Math.max(...this[_pyramid].gridSizes[0]) <= 999999) {
+    if (true) {
       const center = getCenter(this[_projection].getExtent())
       this[_overviewMap] = new OverviewMap({
         view: new View({
@@ -1522,28 +1523,33 @@ class VolumeImageViewer {
     // this.opticalPathCoordinates = {};
 
 
-    // this.redLine = new Feature({
-    //   geometry: new LineString([]),
-    //   style: new Style({
-    //     stroke: new Stroke({
-    //       color: 'red',
-    //       width: 10,
-    //     }),
-    //   }),
-    // });
+    this.redLine = new Feature({
+      geometry: new LineString([]),
+      style: new Style({
+        stroke: new Stroke({
+          color: 'red',
+          width: 10,
+        }),
+      }),
+    });
 
-    // // Create a vector source and layer for the red line.
-    // this.redLineSource = new VectorSource({
-    //   features: [this.redLine],
-    // });
-    // this.redLineLayer = new VectorLayer({
-    //   source: this.redLineSource,
-    // });
+    // Create a vector source and layer for the red line.
+    this.redLineSource = new VectorSource({
+      features: [this.redLine],
+    });
+    this.redLineLayer = new VectorLayer({
+      source: this.redLineSource,
+    });
 
-    // // Add the red line layer to the overview map.
-    // this[_overviewMap].getOverviewMap().addLayer(this.redLineLayer);
+    // Add the red line layer to the overview map if it exists.
+    if (this[_overviewMap]) {
+      this[_overviewMap].getOverviewMap().addLayer(this.redLineLayer);
+    }
 
-    // this[_map].on('moveend', this.handleMoveEnd);
+    // Ensure that this[_map] exists before attaching the event listener
+    if (this[_map]) {
+      this[_map].on('moveend', this.handleMoveEnd);
+    }
 
 
     // // Add a postcompose event listener to update the red line.
