@@ -1314,6 +1314,7 @@ class VolumeImageViewer {
       layers.push(tileDebugLayer)
     }
 
+    console.log('test alpha: ', Math.max(...this[_pyramid].gridSizes[0]))
     if (Math.max(...this[_pyramid].gridSizes[0]) <= 10) {
       const center = getCenter(this[_projection].getExtent())
       this[_overviewMap] = new OverviewMap({
