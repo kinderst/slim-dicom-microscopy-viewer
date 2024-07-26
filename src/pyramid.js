@@ -236,6 +236,16 @@ function _computeImagePyramid ({ metadata }) {
       '\ntile grid size [tiles]: ', pyramidGridSizes,
       '\nresolution [factors]: ', pyramidResolutions
     )
+  } else {
+    console.warn(
+      'images of the image pyramid DO NOT have different sizes: ',
+      '\nsize [mm]: ', pyramidPhysicalSizes,
+      '\npixel spacing [mm]: ', pyramidPixelSpacings,
+      '\nsize [pixels]: ', pyramidImageSizes,
+      '\ntile size [pixels]: ', pyramidTileSizes,
+      '\ntile grid size [tiles]: ', pyramidGridSizes,
+      '\nresolution [factors]: ', pyramidResolutions
+    )
   }
 
   /**
