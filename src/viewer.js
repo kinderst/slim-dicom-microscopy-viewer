@@ -1510,18 +1510,6 @@ class VolumeImageViewer {
 
 
     /* SCOTT CHANGES */
-    // Create a layer for the user's path
-    // this.pathLayer = new VectorLayer({
-    //   source: new VectorSource(),
-    //   style: new Style({
-    //     stroke: new Stroke({
-    //       color: 'red',
-    //       width: 2,
-    //     }),
-    //   }),
-    // });
-    // this.opticalPathCoordinates = {};
-
 
     this.redLine = new Feature({
       geometry: new LineString([]),
@@ -1551,95 +1539,11 @@ class VolumeImageViewer {
       this[_map].on('moveend', this.handleMoveEnd);
     }
 
-
-    // // Add a postcompose event listener to update the red line.
-    // this[_map].on('moveend', () => {
-    //   // Get the overview map's view.
-    //   const view = this[_overviewMap].getOverviewMap().getView();
-    //   console.log("view: ", view)
-    //   // Get the center coordinates of the overview map.
-    //   const center = view.getCenter();
-    //   console.log("center: ", center)
-    //   center[0] = center[0] + Math.floor(Math.random() * 20000);
-    //   center[1] = center[1] + Math.floor(Math.random() * 20000);
-      
-
-    //   // Get the overview map's view and extent.
-    //   // const overviewMapView = this[_overviewMap].getOverviewMap().getView();
-    //   // const overviewMapExtent = overviewMapView.calculateExtent();
-
-    //   // Convert the center coordinates to overview map coordinates.
-    //   // const overviewMapCenter = fromLonLat(center);
-
-    //   // Check if the center is within the overview map's extent.
-    //   // if (ol.extent.containsCoordinate(overviewMapExtent, overviewMapCenter)) {
-    //     // Add the center to the red line geometry.
-    //     const coordinates = this.redLine.getGeometry().getCoordinates();
-    //     coordinates.push(center);
-    //     this.redLine.getGeometry().setCoordinates(coordinates);
-
-    //     // Redraw the red line source.
-    //     redLineSource.changed();
-    //   // }
-    // });
-    // Attach a "moveend" event handler to track panning
-    // this[_map].on('moveend', () => {
-    //   console.log("omg omg hi to")
-    //   // // Get the map's current center
-    //   // const center = this[_map].getView().getCenter();
-
-    //   // // Add the center as a new point to the path geometry
-    //   // this.pathGeometry.appendCoordinate(center);
-
-    //   // // Update the path layer's source with the modified geometry
-    //   // this.pathLayer.getSource().clear();
-    //   // this.pathLayer.getSource().addFeature(new Feature(this.pathGeometry));
-
-    //   // Get the overview map's current center
-    //   const center = this[_overviewMap].getOverviewMap().getView().getCenter();
-    //   console.log("center: ", center)
-
-    //   // // Add the center as a new point to the path geometry
-    //   // this.pathGeometry.appendCoordinate(center);
-
-    //   // // Update the path layer's source with the modified geometry
-    //   // this.pathLayer.getSource().clear();
-    //   // this.pathLayer.getSource().addFeature(new Feature(this.pathGeometry));
-    // });
-
-    // this[_overviewMap].getOverviewMap().addLayer(this.pathLayer);
-
     /* END SCOTT CHANGES */
 
   }
 
   handleMoveEnd = (myEvent) => {
-    // console.log("my event: ", myEvent.frameState.extent)
-    // console.log("my event center: ", getCenter(myEvent.frameState.extent))
-    // const view = this[_overviewMap].getOverviewMap().getView();
-    // console.log("view: ", view)
-    // // Get the center coordinates of the overview map.
-    // const center = view.getCenter();
-    // console.log("center: ", center)
-    // center[0] = center[0] + Math.floor(Math.random() * 12500);
-    // center[1] = center[1] + Math.floor(Math.random() * 12500);
-
-    // const myCenter = getCenter(this[_projection].getExtent())
-
-    // console.log("my center: ", myCenter)
-
-    // console.log("proj", this[_projection].getExtent())
-    
-
-    // Get the overview map's view and extent.
-    // const overviewMapView = this[_overviewMap].getOverviewMap().getView();
-    // const overviewMapExtent = overviewMapView.calculateExtent();
-
-    // Convert the center coordinates to overview map coordinates.
-    // const overviewMapCenter = fromLonLat(center);
-
-    // Check if the center is within the overview map's extent.
-    // if (ol.extent.containsCoordinate(overviewMapExtent, overviewMapCenter)) {
     // Add the center to the red line geometry.
     const center = getCenter(myEvent.frameState.extent)
     const coordinates = this.redLine.getGeometry().getCoordinates();
@@ -1650,24 +1554,7 @@ class VolumeImageViewer {
     this.redLineSource.changed();
   }
 
-  // setImageAugmentation = () => {
-  //   console.log('setting from viewer!')
-  // }
-
-  /**
-   * Get all optical paths.
-   *
-   */
-  // someFunction () {
-  //   console.log('some function...new')
-  //   // console.log(this[_imageAugmentations])
-  //   // console.log('changing it...')
-  //   // this[_imageAugmentations]['hue'] = 180
-  //   // this[_map].render()
-  // }
-
   setImageAugmentationHue (inputValue) {
-    // console.log("attempting to set hue: ", inputValue)
     if (inputValue >= 0 && inputValue <= 360) {
       this[_imageAugmentations]['hue'] = inputValue
       this[_map].render()
@@ -1676,7 +1563,6 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationBrightness (inputValue) {
-    // console.log("attempting to set brightness: ", inputValue)
     if (inputValue >= -1 && inputValue <= 1) {
       this[_imageAugmentations]['brightness'] = inputValue
       this[_map].render()
@@ -1684,7 +1570,6 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationSaturation (inputValue) {
-    // console.log("attempting to set saturation: ", inputValue)
     if (inputValue >= -5 && inputValue <= 5) {
       this[_imageAugmentations]['saturation'] = inputValue
       this[_map].render()
@@ -1692,7 +1577,6 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationContrast (inputValue) {
-    // console.log("attempting to set contrast: ", inputValue)
     if (inputValue >= -2 && inputValue <= 2) {
       this[_imageAugmentations]['contrast'] = inputValue
       this[_map].render()
@@ -1700,7 +1584,6 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationSharpen (inputValue) {
-    // console.log("attempting to set sharpen: ", inputValue)
     if (inputValue >= 0 && inputValue <= 3) {
       this[_imageAugmentations]['sharpen'] = inputValue
       this[_map].render()
@@ -1708,13 +1591,11 @@ class VolumeImageViewer {
   }
 
   setImageAugmentationDetectEdges (inputValue) {
-    // console.log("attempting to set detectEdges: ", inputValue)
     this[_imageAugmentations]['detectEdges'] = inputValue
     this[_map].render()
   }
 
   setImageAugmentationNegative (inputValue) {
-    // console.log("attempting to set negative: ", inputValue)
     this[_imageAugmentations]['negative'] = inputValue
     this[_map].render()
   }
@@ -3514,7 +3395,6 @@ class VolumeImageViewer {
           const graphicIndex = retrievedBulkdata[1]
           const measurements = retrievedBulkdata[2]
 
-          // console.log('process annotations')
           for (let i = 0; i < numberOfAnnotations; i++) {
             const point = _getCentroid(
               graphicType,
