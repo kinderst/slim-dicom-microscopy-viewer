@@ -238,7 +238,7 @@ function _computeImagePyramid ({ metadata }) {
     )
   } else {
     console.warn(
-      'images of the image pyramid DO NOT have different sizes: ',
+      'images of the image pyramid DO NOT, have different sizes: ',
       '\nsize [mm]: ', pyramidPhysicalSizes,
       '\npixel spacing [mm]: ', pyramidPixelSpacings,
       '\nsize [pixels]: ', pyramidImageSizes,
