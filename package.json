@@ -1,6 +1,6 @@
 {
   "name": "slim-dicom-microscopy-viewer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "author": "Scott Kinder (forked from ImagingDataCommons)",
   "homepage": "https://github.com/kinderst/slim-dicom-microscopy-viewer#readme",

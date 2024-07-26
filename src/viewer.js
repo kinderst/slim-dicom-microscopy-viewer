@@ -1519,28 +1519,30 @@ class VolumeImageViewer {
     //   }),
     // });
     // this.opticalPathCoordinates = {};
-    this.redLine = new Feature({
-      geometry: new LineString([]),
-      style: new Style({
-        stroke: new Stroke({
-          color: 'red',
-          width: 10,
-        }),
-      }),
-    });
 
-    // Create a vector source and layer for the red line.
-    this.redLineSource = new VectorSource({
-      features: [this.redLine],
-    });
-    this.redLineLayer = new VectorLayer({
-      source: this.redLineSource,
-    });
 
-    // Add the red line layer to the overview map.
-    this[_overviewMap].getOverviewMap().addLayer(this.redLineLayer);
+    // this.redLine = new Feature({
+    //   geometry: new LineString([]),
+    //   style: new Style({
+    //     stroke: new Stroke({
+    //       color: 'red',
+    //       width: 10,
+    //     }),
+    //   }),
+    // });
 
-    this[_map].on('moveend', this.handleMoveEnd);
+    // // Create a vector source and layer for the red line.
+    // this.redLineSource = new VectorSource({
+    //   features: [this.redLine],
+    // });
+    // this.redLineLayer = new VectorLayer({
+    //   source: this.redLineSource,
+    // });
+
+    // // Add the red line layer to the overview map.
+    // this[_overviewMap].getOverviewMap().addLayer(this.redLineLayer);
+
+    // this[_map].on('moveend', this.handleMoveEnd);
 
 
     // // Add a postcompose event listener to update the red line.
